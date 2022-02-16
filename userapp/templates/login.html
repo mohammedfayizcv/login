@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="containers">
+  <div class="img">
+    <img src="{% static 'media/log.svg' %}">
+  </div>
+  <div class="login-content">
+    <form action="/viewspage/" method="POST">
+      {% csrf_token %}
+      <img src="{% static 'media/user.svg' %}">
+      <h2 class="title">Welcome</h2>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <h5>email</h5>
+          <input type="email" class="input" name="email">
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <h5>Password</h5>
+          <input type="password" class="input"  name="password">
+        </div>
+      </div>
+      <a href="{% url 'forgetpass' %}">Forgot Password?</a>
+      <input type="submit" id="btn" value="Login">
+      
+      <small class="d-inline-flex">Create new Account <a href="{% url 'register'  %}" class="mx-3"> Register</a></small>
+      <br>
+      <!-- Social login -->
+      <span class="fw-bold text-danger"> {{msg_log}}</span>
+
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+
+  const inputs = document.querySelectorAll(".input");
+
+
+  function addcl() {
+    let parent = this.parentNode.parentNode;
+    parent.classList.add("focus");
+  }
+
+  function remcl() {
+    let parent = this.parentNode.parentNode;
+    if (this.value == "") {
+      parent.classList.remove("focus");
+    }
+  }
+
+
+  inputs.forEach(input => {
+    input.addEventListener("focus", addcl);
+    input.addEventListener("blur", remcl);
+  });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

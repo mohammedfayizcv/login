@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="containers">
+    <div class="img">
+        <img src="{% static 'media/detail.svg' %}">
+    </div>
+    <div class="login-content">
+        <form id="form" class="form mx-5" action="/login/" method="POST" onsubmit="return validation()">
+            {% csrf_token %}
+            <img src="{% static 'media/form.svg' %}">
+            <h2 class="title">Register</h2>
+            <div class="form-group">
+                <div class="col-lg-12">
+         
+                    <input type="text" id="name" class="form-control" placeholder="Enter Full Name" name="name" />
+                    <span id="nameError" class="text-danger fw-bold"></span>
+                </div>
+                <div class="col-lg-12">
+               
+                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number"
+                        name="phonenumber" />
+                    <span id="phonError" class="text-danger fw-bold"></span>
+
+                </div>
+                <div class="col-lg-12">
+                   
+                    <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" />
+                    <span id="emailError" class="text-danger fw-bold"></span>
+
+                </div>
+                <span style="color: red;"> {{msg1}}</span>
+                <div class="col-lg-12">
+                    <input type="password" id="password" class="form-control" placeholder="Enter Password"
+                        name="pass" />
+                    <span id="passError" class="text-danger fw-bold"></span>
+
+                </div>
+                <div class="col">
+ 
+                    <input type="password" id="password2" placeholder="Confirm Password" class="form-control"
+                        name="conpass" />
+                    <span id="conpassError" class="text-danger fw-bold"></span>
+
+                </div>
+                <p> <b> Date of birth </b></p>
+                <select name="day" id="day" class="birth">
+                </select>
+                <select name="month" id="month" class="birth">
+                </select>
+                <select name="year" id="year" class="birth">
+                </select>
+            </div><br>
+
+
+            <div class="custom-control custom-radio custom-control-inline " id="gender">
+                <p> <b> Gender: </b></p>
+                <input type="radio" id="customRadioInline1" name="gender" value="male" class="custom-control-input"
+                    checked>
+                <label class="custom-control-label" for="customRadioInline1">Male</label>
+                <input type="radio" id="customRadioInline2" name="gender" value="female" class="custom-control-input">
+                <label class="custom-control-label" for="female">
+                    female</label>
+
+                <span id="genderError" class="text-danger fw-bold"></span>
+            </div>
+            <input type="submit" id="btn" value="Submit">
+        </form>
+        <span class="text-success mx-5"> {{msg2}}</span>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

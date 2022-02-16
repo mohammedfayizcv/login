@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="containers">
+  <div class="img">
+    <img src="{% static 'media/forgetpass.svg' %}">
+  </div>
+  <div class="login-content">
+    <form action="" method="POST">
+      {% csrf_token %}
+      <img src="{% static 'media/search.svg' %}">
+      <h2 class="title">Forget Password</h2>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="div">
+          <input type="email" class="input" placeholder="abc@gmail.com" name="email">
+
+        </div>
+      </div>
+      
+      <input type="submit" id="btn" value="Submit">
+      
+      {% if messages %} {% for mesg in messages%}
+    <small class="fw-bold">{{mesg}}</small> {% endfor %} {% endif %}
+
+    </form>
+  </div>
+</div>
+
+
+
+
+
+
+    
+{% endblock content %}
+    
